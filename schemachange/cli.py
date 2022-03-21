@@ -34,14 +34,14 @@ class JinjaEnvVar(jinja2.ext.Extension):
   """
   Extends Jinja Templates with access to environmental variables
   """
-  def __init__(self, environment=jinja2.Environment):
+  def __init__(self, environment: jinja2.Environment):
     super().__init__(environment)
 
     # add globals
     environment.globals["env_var"] = JinjaEnvVar.env_var
 
   @staticmethod
-  def env_var(env_var=str, default: Optional[str] = None) -> str:
+  def env_var(env_var: str, default: Optional[str] = None) -> str:
     """
     Returns the value of the environmental variable or the default.
     """
